@@ -1,0 +1,195 @@
+{
+  "meta": {
+    "name": "穩飛 SureTix · Design DNA",
+    "description": "大湾区观演一站式平台的视觉基因：暗色电影票务风 + premium 沉金 + 编辑杂志排版。全站每一页照此基线生成，保证视觉一致。",
+    "source_references": [
+      "Figma 生成稿(暗色电影+暖金)",
+      "参考图: Adverse casino app / F1 movie ticket app / KALAN 35 Tickets / Zirka creators app",
+      "已实现首页 lib/screens/home_screen.dart (localhost:8902)",
+      "ui-ux-pro-max --design-system 输出(concert ticketing premium dark)"
+    ],
+    "created_at": "2026-08-17"
+  },
+  "design_system": {
+    "color": {
+      "palette_type": "monochromatic-dark + single warm accent",
+      "primary": { "hex": "#D6A94E", "role": "premium 沉金主强调：价格/CTA/关键徽章" },
+      "secondary": { "hex": "#B07E28", "role": "深金：渐变底、按压态" },
+      "accent": { "hex": "#FF8A5A", "role": "特惠橙：折扣/降价专用，与金区分" },
+      "neutral": {
+        "scale": ["#FFFFFF", "#CFCFCF", "#9A9A9E", "#8A8A8E", "#6A6A6E", "#232326", "#161618", "#0A0A0B"],
+        "usage": "白=主文/深金标题；灰阶=次要/辅助文；#232326=描边；#161618=卡片；#0A0A0B=背景"
+      },
+      "semantic": {
+        "success": "#4EC38A (现票/已确认)",
+        "warning": "#D6A94E (担保出票/资源确认中)",
+        "error": "#FF4D4D (库存不足/现场无法入场)",
+        "info": "#CFCFCF"
+      },
+      "surface": {
+        "background": "#0A0A0B (径向微渐变至 #1a1a1d 顶部)",
+        "card": "#161618",
+        "elevated": "rgba(28,28,30,0.6) 玻璃拟态"
+      },
+      "contrast_strategy": "high contrast：纯黑底 + 白/金高亮；图片上文字必配底部→上黑色 scrim 渐变或暗色背板保证 >4.5:1"
+    },
+    "typography": {
+      "type_scale": {
+        "display": { "size": "34-40", "weight": "800", "line_height": "1.05", "tracking": "0.5" },
+        "heading_1": { "size": "20-22", "weight": "800", "line_height": "1.1", "tracking": "0" },
+        "heading_2": { "size": "17", "weight": "800", "line_height": "1.2", "tracking": "0" },
+        "heading_3": { "size": "14-16", "weight": "700", "line_height": "1.3", "tracking": "0" },
+        "body": { "size": "13-14", "weight": "400-600", "line_height": "1.5", "tracking": "0" },
+        "body_small": { "size": "11-12", "weight": "400-600", "line_height": "1.4", "tracking": "0" },
+        "caption": { "size": "9-10", "weight": "500", "line_height": "1.3", "tracking": "0.5" },
+        "overline": { "size": "8-10", "weight": "600-700", "line_height": "1.2", "tracking": "2-3 (英文大写点缀 SURETIX/SOLD-OUT/THIS WEEK)" }
+      },
+      "font_families": {
+        "heading": "Noto Serif SC (衬线, 斜体, 800) — hero/艺人名等展示字",
+        "body": "Noto Sans SC — 正文/标签/UI",
+        "mono": "system monospace (票号/订单号)"
+      },
+      "font_style_notes": "中文大标题用衬线斜体压图制造编辑杂志感；正文无衬线干净；英文/数字大写+大字距做点缀。金色只落在价格/强调。"
+    },
+    "spacing": {
+      "base_unit": "4px",
+      "scale": [4, 6, 8, 10, 12, 14, 16, 18, 22, 26],
+      "content_density": "comfortable (页边距 22, 卡间距 12)",
+      "section_rhythm": "区块间 22-26px，区块内元素 6-16px"
+    },
+    "layout": {
+      "grid_system": "单列移动优先 + 局部双列(双大竖卡)/横滑",
+      "max_content_width": "390 (手机窄屏, web 预览用 _PhoneShell 约束居中)",
+      "columns": "1 主 / 2 (dual cards)",
+      "gutter": "12",
+      "breakpoints": "<=480 全宽真机；>480 套 390x844 手机框",
+      "alignment_tendency": "asymmetric 编辑式：超大 hero + 双竖卡 + 横 list 混排，非等分"
+    },
+    "shape": {
+      "border_radius": { "small": "8", "medium": "14-18", "large": "20-26", "pill": "20-26" },
+      "border_usage": "subtle 1px rgba 描边 (#232326 / 半透明金) 区分卡片与玻璃",
+      "divider_style": "极少用实线；靠留白与卡片色差分隔"
+    },
+    "elevation": {
+      "shadow_style": "soft diffused + 金色辉光(CTA)",
+      "levels": {
+        "low": "卡片仅描边无阴影",
+        "medium": "0 8px 24px rgba(0,0,0,.35)",
+        "high": "0 20px 60px rgba(0,0,0,.6) (手机外框) / 金按钮 0 8px 18px rgba(201,150,47,.5)"
+      },
+      "depth_cues": "blur/glass + 图片 scrim + 色彩强度(金色辉光)"
+    },
+    "iconography": {
+      "style": "line/outline 矢量",
+      "stroke_weight": "2px 一致",
+      "size_scale": [13, 14, 16, 18, 20, 22],
+      "preferred_set": "Lucide (lucide_icons_flutter) — 严禁 emoji 当结构图标"
+    },
+    "motion": {
+      "easing": "easeOutCubic / Cubic(0.23,1,0.32,1) 强曲线；回弹用 back.out(1.4)",
+      "duration_scale": { "micro": "150ms (按压)", "normal": "300-340ms (入场)", "macro": "420ms (hero淡入)" },
+      "entrance_pattern": "列表 stagger 55ms fade+slideY(0.06)；hero 只 fade 不 slide、不参与 stagger(首屏主角立即在场)",
+      "exit_pattern": "比入场快(200ms)",
+      "philosophy": "cinematic 但克制：UI 动效 <300ms；按压 scale 0.97；只动 transform/opacity"
+    },
+    "components": {
+      "button_style": "金渐变胶囊(bright→deep) + 深色字 + 辉光阴影；PressableScale 0.97 按压反馈",
+      "input_style": "玻璃拟态圆角 22 搜索框，半透明描边",
+      "card_style": "深炭卡 #161618 + 1px 描边 + 20 圆角；图片卡全出血 + scrim + 底部压字",
+      "navigation_pattern": "玻璃胶囊悬浮底栏 5 项(首页/演出/中间扫码FAB/订单/我的)",
+      "modal_style": "居中(非 origin-aware)，暗底 + 玻璃",
+      "list_style": "横滑大卡(本周最热) + 图文行(折扣/近期)",
+      "component_notes": "担保出票徽章=金描边胶囊+shieldCheck；库存三态徽章：现票绿/担保金/特惠橙"
+    }
+  },
+  "design_style": {
+    "aesthetic": {
+      "mood": ["premium", "cinematic", "trustworthy", "bold", "nocturnal"],
+      "visual_metaphor": "电影票根 + 演唱会现场灯光",
+      "era_influence": "当代编辑杂志 + 流媒体海报墙",
+      "genre": "luxury editorial ticketing (高端观演服务商，非廉价黄牛/票务列表)",
+      "personality_traits": ["confident", "reliable", "curated", "premium"],
+      "adjectives": ["dark", "gold", "editorial", "high-contrast", "immersive"]
+    },
+    "visual_language": {
+      "complexity": "moderate",
+      "ornamentation": "subtle accents (金线/辉光/英文大写点缀)",
+      "whitespace_usage": "generous, 图片为绝对主角",
+      "visual_weight_distribution": "top-heavy: 超大 hero 抓眼，下方信息密度渐增",
+      "focal_strategy": "single hero element 主导 + 分区块焦点",
+      "contrast_level": "high",
+      "texture_usage": "真实演唱会照片纹理 + 黑色渐变蒙版"
+    },
+    "composition": {
+      "hierarchy_method": "scale contrast + color weight(金) + 图片压字",
+      "balance_type": "asymmetric",
+      "flow_direction": "纵向滚动，区块内横滑",
+      "grouping_strategy": "区块化(本周最热/套餐推荐/甄选特惠/近期演出)，每块中文粗标题+英文 overline",
+      "negative_space_role": "分隔区块、烘托 premium 呼吸感"
+    },
+    "imagery": {
+      "photo_treatment": "全出血演唱会现场大图 + 底部→上黑色 scrim 渐变压字",
+      "illustration_style": "无插画，纯摄影",
+      "graphic_elements": "金色徽章/胶囊/票根齿孔",
+      "pattern_usage": "极少；靠图片与暗底",
+      "image_shape": "大圆角矩形(20-26)，竖构图为主"
+    },
+    "interaction_feel": {
+      "feedback_style": "按压 scale 0.97 即时反馈",
+      "hover_behavior": "移动优先，hover 非主要",
+      "transition_personality": "smooth glide + 轻微 back.out 回弹",
+      "loading_style": "stagger 淡入上滑",
+      "microinteraction_density": "moderate（克制，不炫技）"
+    },
+    "brand_voice_in_ui": {
+      "tone": "笃定、可靠、懂行",
+      "formality": "半正式，粤港语境(繁体品牌名穩飛)",
+      "cta_style": "direct imperative + 轻度稀缺(立即抢票/担保有票/售罄也能补)",
+      "empty_state_approach": "待定(后续 onboard)",
+      "error_tone": "清晰负责：库存不足直接禁止购买；现场无法入场高优先级兜底"
+    }
+  },
+  "visual_effects": {
+    "overview": {
+      "effect_intensity": "subtle-accent",
+      "performance_tier": "lightweight",
+      "fallback_strategy": "reduce to static (尊重 reduce-motion；无图时渐变兜底)",
+      "primary_technology": "Flutter (flutter_animate) + BackdropFilter 玻璃"
+    },
+    "background_effects": {
+      "type": "gradient (径向暗色微渐变)",
+      "description": "背景 #0A0A0B 顶部径向提亮至 #1a1a1d",
+      "technology": "CSS/Flutter gradient",
+      "params": { "color_palette": ["#1a1a1d", "#0A0A0B"], "speed": "static", "density": "n/a", "opacity": "1", "blend_mode": "normal" }
+    },
+    "particle_systems": { "enabled": false, "type": "none", "description": "", "technology": "", "params": {} },
+    "3d_elements": { "enabled": false, "type": "none", "description": "", "technology": "", "params": {} },
+    "shader_effects": { "enabled": false, "type": "none", "description": "", "technology": "", "params": {} },
+    "scroll_effects": {
+      "parallax": { "enabled": false, "layers": "0", "depth_range": "", "speed_curve": "" },
+      "scroll_triggered_animations": { "enabled": true, "trigger_points": "on load / on view", "animation_type": "fade-up (stagger)", "scrub_behavior": "none" },
+      "scroll_morphing": { "enabled": false, "description": "" }
+    },
+    "text_effects": {
+      "type": "none (静态衬线大标题)",
+      "description": "可选：hero 标题字符级入场(未实现)",
+      "technology": "flutter_animate",
+      "params": { "split_strategy": "none", "animation_per_unit": "none", "stagger": "none", "effect_style": "none" }
+    },
+    "cursor_effects": { "enabled": false, "type": "none", "description": "移动端无光标", "params": {} },
+    "image_effects": {
+      "type": "scrim-overlay (+ 可选 Ken Burns 缓慢缩放, 未实现)",
+      "description": "海报图统一叠底部→上黑色渐变保证压字可读",
+      "technology": "Flutter DecoratedBox gradient",
+      "params": { "filter_pipeline": "scrim gradient", "hover_transform": "none", "reveal_animation": "fade-in", "distortion_type": "none" }
+    },
+    "glassmorphism_neumorphism": {
+      "enabled": true,
+      "style": "glass (frosted)",
+      "params": { "blur_radius": "20px", "transparency": "rgba(28,28,30,0.6)", "border_treatment": "1px rgba(255,255,255,0.08)", "shadow_type": "soft", "light_source_angle": "top" }
+    },
+    "canvas_drawings": { "enabled": false, "type": "none", "description": "", "technology": "", "params": {} },
+    "svg_animations": { "enabled": false, "type": "none", "description": "", "params": {} },
+    "composite_notes": "核心视觉靠3件事叠加：真实演唱会大图 + 底部黑色 scrim + premium 沉金强调。玻璃拟态用于底栏/搜索/信任条。动效克制：列表 stagger 淡入上滑、hero 仅淡入、按压 scale 0.97。可选增强(未实现)：hero Ken Burns 缓慢缩放、双竖卡 back.out 回弹入场。占位渐变仅兜底，真图是灵魂，上线须接真实海报。"
+  }
+}

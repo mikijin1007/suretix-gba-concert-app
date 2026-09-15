@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>首页 UX v3 · 信息优先 + 特惠页 + 信任页</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
+body{background:radial-gradient(1200px 600px at 50% -10%,#1a1a1d,#0a0a0b 60%);font-family:-apple-system,'PingFang SC',sans-serif;min-height:100vh;padding:48px 24px 80px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.h{color:#fff;font-size:22px;font-weight:800}.h i{color:#E8B65A;font-style:italic}
+.hs{color:#8A8A8E;font-size:12px;letter-spacing:2px;margin-bottom:20px}
+.row{display:flex;gap:30px;justify-content:center;align-items:flex-start;flex-wrap:wrap}
+.col{display:flex;flex-direction:column;align-items:center;gap:12px}
+.tag{background:rgba(232,182,90,.12);color:#E8B65A;font-size:10px;font-weight:700;padding:6px 18px;border-radius:20px;letter-spacing:1px;border:1px solid rgba(232,182,90,.35)}
+.phone{width:370px;height:800px;background:#0A0A0B;border-radius:46px;overflow:hidden;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 8px #1c1c1e,0 0 0 10px #2a2a2d}
+.screen{position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;color:#fff}.screen::-webkit-scrollbar{display:none}
+.sb{display:flex;justify-content:space-between;padding:16px 26px 4px;font-size:13px;font-weight:600}
+.glass{background:rgba(28,28,30,.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08)}
+.pill{border-radius:20px;padding:8px 16px;font-size:12px;font-weight:600;white-space:nowrap}
+.badge-guar{background:rgba(232,182,90,.14);color:#E8B65A;border:1px solid rgba(232,182,90,.4)}
+.badge-hard{background:rgba(78,195,138,.15);color:#4EC38A;border:1px solid rgba(78,195,138,.4)}
+.badge-deal{background:rgba(255,120,90,.16);color:#FF8A5A;border:1px solid rgba(255,120,90,.4)}
+.tt{border-radius:8px;font-size:9px;font-weight:800;padding:3px 8px;background:rgba(232,182,90,.14);color:#E8B65A;border:1px solid rgba(232,182,90,.35)}
+</style></head>
+<body>
+<div class="h">首页 UX <i>v3 · 信息优先</i></div>
+<div class="hs">INFO-DENSE HOME · DEAL LIST · TRUST PROOF</div>
+<div class="row" id="root"></div>
+<script src="home_v3.js"></script>
+</body></html>

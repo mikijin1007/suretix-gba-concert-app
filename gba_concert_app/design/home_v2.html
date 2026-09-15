@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>首页 UX v2 · 双人群分流</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
+body{background:radial-gradient(1200px 600px at 50% -10%,#1a1a1d,#0a0a0b 60%);font-family:-apple-system,'PingFang SC',sans-serif;min-height:100vh;padding:48px 24px 80px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.h{color:#fff;font-size:22px;font-weight:800}.h i{color:#E8B65A;font-style:italic}
+.hs{color:#8A8A8E;font-size:12px;letter-spacing:2px;margin-bottom:24px}
+.phone{width:370px;height:800px;background:#0A0A0B;border-radius:46px;overflow:hidden;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 8px #1c1c1e,0 0 0 10px #2a2a2d}
+.screen{position:absolute;inset:0;overflow-y:auto;scrollbar-width:none;color:#fff}.screen::-webkit-scrollbar{display:none}
+.sb{display:flex;justify-content:space-between;padding:16px 26px 4px;font-size:13px;font-weight:600}
+.glass{background:rgba(28,28,30,.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08)}
+.pill{border-radius:20px;padding:8px 16px;font-size:12px;font-weight:600;white-space:nowrap}
+.badge-guar{background:rgba(232,182,90,.14);color:#E8B65A;border:1px solid rgba(232,182,90,.4)}
+.badge-hard{background:rgba(78,195,138,.15);color:#4EC38A;border:1px solid rgba(78,195,138,.4)}
+.save{background:rgba(78,195,138,.14);color:#4EC38A;border:1px solid rgba(78,195,138,.35);border-radius:8px;font-size:10px;font-weight:800;padding:3px 8px}
+.note{max-width:370px;color:#c9c9cd;font-size:12px;line-height:1.7;background:#131315;border:1px solid #232326;border-radius:14px;padding:16px 18px}
+.note b{color:#E8B65A}
+</style></head>
+<body>
+<div class="h">首页 UX <i>v2 · 双人群分流</i></div>
+<div class="hs">HOT & DEAL DUAL-ENTRY</div>
+<div class="phone"><div class="screen" id="s"></div></div>
+<div class="note" id="n"></div>
+<script>
+const G1='linear-gradient(160deg,#4a3a1e,#1a1206 70%)',G2='linear-gradient(160deg,#5e2a3a,#301018 70%)',G3='linear-gradient(160deg,#2a4a5e,#102630 70%)',G4='linear-gradient(160deg,#3a2a5e,#1a1030 70%)';
+const scrim='linear-gradient(to top,rgba(0,0,0,.92) 8%,rgba(0,0,0,.35) 45%,rgba(0,0,0,0) 75%)';
+document.getElementById('s').innerHTML=`
+<div class="sb"><div>9:41</div><div>📶 🔋95</div></div>
+<!-- 1 top: logo + search bigger -->
+<div style="display:flex;align-items:center;gap:8px;padding:6px 22px 12px">
+  <div style="width:24px;height:24px;border-radius:7px;background:linear-gradient(135deg,#E8B65A,#C9962F)"></div>
+  <b style="font-size:16px">湾区看演</b><div style="flex:1"></div>🔔
+  <div style="width:28px;height:28px;border-radius:50%;background:#2a2a2d;margin-left:12px"></div>
+</div>
+<div style="padding:0 22px 16px"><div class="glass" style="border-radius:22px;padding:14px 16px;color:#9a9a9e;font-size:14px">🔍 搜艺人 / 演出 —— 想看谁，直接搜</div></div>
+
+<!-- 2 hero: biggest hot show + trust hook -->
+<div style="margin:0 22px 14px;border-radius:26px;overflow:hidden;position:relative;background:${G1};height:340px">
+  <div style="position:absolute;inset:0;background:${scrim}"></div>
+  <div style="position:absolute;top:16px;left:16px" class="pill badge-guar">✓ 担保出票 · 售罄也能补</div>
+  <div style="position:absolute;left:20px;right:20px;bottom:20px">
+    <div style="font-size:36px;font-weight:800;font-style:italic;line-height:1.05">薛之谦<br>天外来物巡演</div>
+    <div style="font-size:13px;color:#cfcfcf;margin-top:10px">📍香港体育馆 · 09/13 周六 20:00</div>
+    <div style="margin-top:10px;font-size:14px;color:#E8B65A;font-weight:700">¥1,880 <span style="color:#9a9a9e;font-weight:500">起 · 含门票+酒店</span></div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:8px;display:flex;gap:6px;justify-content:center">
+    <span style="width:18px;height:4px;border-radius:2px;background:#E8B65A"></span><span style="width:4px;height:4px;border-radius:2px;background:#555"></span><span style="width:4px;height:4px;border-radius:2px;background:#555"></span>
+  </div>
+</div>
+
+<!-- 3 ★ DUAL ENTRY as a single pill row -->
+<div style="display:flex;gap:10px;padding:0 22px 20px">
+  <div style="flex:1;border-radius:16px;padding:12px 14px;display:flex;align-items:center;gap:10px;background:linear-gradient(150deg,rgba(232,182,90,.18),rgba(232,182,90,.04));border:1px solid rgba(232,182,90,.35)">
+    <span style="font-size:20px">🎫</span><div><div style="font-size:14px;font-weight:800">担保有票</div><div style="font-size:10px;color:#c9b98a;margin-top:2px">热门·秒罄补票</div></div>
+  </div>
+  <div style="flex:1;border-radius:16px;padding:12px 14px;display:flex;align-items:center;gap:10px;background:linear-gradient(150deg,rgba(78,195,138,.16),rgba(78,195,138,.03));border:1px solid rgba(78,195,138,.3)">
+    <span style="font-size:20px">✨</span><div><div style="font-size:14px;font-weight:800">甄选特惠</div><div style="font-size:10px;color:#9ac9b0;margin-top:2px">早鸟·尾票捡漏</div></div>
+  </div>
+</div>
+
+<!-- 4 trust bar -->
+<div style="display:flex;justify-content:space-between;margin:0 22px 22px;padding:14px 16px;background:#131315;border:1px solid #232326;border-radius:16px;font-size:11px;color:#c9c9cd;text-align:center">
+  <div style="flex:1">🛡<br><span style="color:#8A8A8E">担保赔付</span></div>
+  <div style="width:1px;background:#232326"></div>
+  <div style="flex:1">🎫🏨🚄<br><span style="color:#8A8A8E">一价全含</span></div>
+  <div style="width:1px;background:#232326"></div>
+  <div style="flex:1">📍<br><span style="color:#8A8A8E">香港本地售后</span></div>
+</div>
+
+<!-- 5 推荐套餐 with 打包省 -->
+<div style="display:flex;justify-content:space-between;align-items:baseline;padding:0 22px 12px"><b style="font-size:16px">推荐套餐</b><span style="font-size:11px;color:#8A8A8E">查看全部 ›</span></div>
+<div style="display:flex;gap:12px;overflow-x:auto;padding:0 22px 22px;scrollbar-width:none">
+  ${[[G2,'薛之谦 HK 演唱会','¥2,680','✓ 担保出票'],[G3,'周杰伦 CARNIVAL','¥3,980','🎫🏨🚄 一价全含'],[G4,'五月天好好好','¥3,280','🛡 验票保真']].map(([g,n,p,s])=>`
+  <div style="flex:0 0 168px;background:#161618;border-radius:18px;overflow:hidden;border:1px solid #232326">
+    <div style="background:${g};height:104px"></div>
+    <div style="padding:12px 14px">
+      <div style="font-size:13px;font-weight:700">${n}</div>
+      <div style="font-size:10px;color:#8A8A8E;margin:5px 0">含门票+酒店2晚</div>
+      <div style="margin-bottom:8px"><span class="save">${s}</span></div>
+      <div style="font-size:16px;color:#E8B65A;font-weight:800">${p} <span style="font-size:10px;color:#8A8A8E;font-weight:500">起</span></div>
+    </div></div>`).join('')}
+</div>
+
+<!-- 6 演出信息流 -->
+<div style="display:flex;gap:8px;padding:0 22px 14px">
+  <span class="pill" style="background:linear-gradient(135deg,#E8B65A,#C9962F);color:#1a1200">近期</span>
+  <span class="pill glass">本周</span><span class="pill glass">全部</span>
+</div>
+${[[G3,'邓紫棋 G.E.M. TOUR','08/30 · 香港体育馆','¥2,180','badge-guar','担保出票'],[G2,'林俊杰 JJ20','09/14 · 亚洲博览馆','¥2,480','badge-hard','现票']].map(([g,n,d,p,bc,bt])=>`
+<div style="display:flex;gap:12px;padding:10px 22px;align-items:center">
+  <div style="flex:0 0 58px;background:${g};height:70px;border-radius:12px"></div>
+  <div style="flex:1"><div style="font-size:14px;font-weight:700">${n}</div><div style="font-size:11px;color:#8A8A8E;margin:3px 0 6px">${d}</div><span class="pill ${bc}" style="font-size:9px;padding:3px 9px">${bt}</span></div>
+  <div style="text-align:right"><div style="font-size:15px;color:#E8B65A;font-weight:800">${p}</div><div style="font-size:9px;color:#8A8A8E">起</div></div>
+</div>`).join('')}
+<div style="height:90px"></div>
+
+<!-- nav: FAB replaced with 我的票 -->
+<div class="glass" style="position:absolute;left:16px;right:16px;bottom:14px;border-radius:26px;display:flex;justify-content:space-around;padding:12px 0;font-size:11px;color:#8A8A8E">
+  <div style="color:#E8B65A;text-align:center">🏠<br>首页</div>
+  <div style="text-align:center">🧭<br>发现</div>
+  <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#E8B65A,#C9962F);display:flex;align-items:center;justify-content:center;font-size:19px;margin-top:-20px">🎟</div>
+  <div style="text-align:center">💬<br>消息</div>
+  <div style="text-align:center">👤<br>我的</div>
+</div>`;
+document.getElementById('n').innerHTML=`<b>这版改了什么（对着讨论）：</b><br>
+① 搜索放大置顶 —— 热门党已知艺人，直达。<br>
+② <b>Hero 放大到 340px</b>，主打最大热门场情绪冲击 + 「担保出票·售罄也能补」钩子（合规保守版）。<br>
+③ <b>双入口缩为一行胶囊</b>：🎫担保有票 · ✨甄选特惠——分流但不抢 Hero 的戏。<br>
+④ 信任条：担保赔付 / 一价全含 / 本地售后。<br>
+⑤ 套餐卡 <b>去掉"打包省¥"，改信任标签</b>（✓担保出票 / 一价全含 / 验票保真）—— 基调是"更靠谱"不是"更便宜"。<br>
+⑥ 底栏中间FAB改「我的票」🎟。`;
+</script>
+</body></html>
